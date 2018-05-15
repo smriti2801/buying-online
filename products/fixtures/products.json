@@ -1,0 +1,114 @@
+[
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "title": "t-shirt",
+        "description": "cheap shirts",
+        "slug": "t-shirt-123",
+        "price": "37.00",
+        "image": "products/1113290/1113290.jpg",
+        "timestamp": "2018-04-23T07:23:51.075Z",
+        "active": true,
+        "featured": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "title": "t-shirt",
+        "description": "cool t-shirts on your way",
+        "slug": "new-pro-123",
+        "price": "13.00",
+        "image": "products/592156/592156.jpg",
+        "timestamp": "2018-04-23T07:23:51.075Z",
+        "active": true,
+        "featured": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "title": "hat",
+        "description": "we have a black hat here",
+        "slug": "new2-erf",
+        "price": "31.00",
+        "image": "products/618131/618131.jpg",
+        "timestamp": "2018-04-23T07:23:51.075Z",
+        "active": true,
+        "featured": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "title": "computer",
+        "description": "this is a computer",
+        "slug": "comp-uter-it-is",
+        "price": "100.00",
+        "image": "products/1002922/1002922.jpg",
+        "timestamp": "2018-04-23T07:23:51.075Z",
+        "active": true,
+        "featured": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "title": "hard disk",
+        "description": "hard disk grey color",
+        "slug": "hard-disk-123",
+        "price": "90.00",
+        "image": "products/898745/898745.jpg",
+        "timestamp": "2018-04-23T07:23:51.075Z",
+        "active": true,
+        "featured": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "title": "pen drive",
+        "description": "this ia a black and red colored pen drive. very much in use. very popular amongst yougsters",
+        "slug": "pen-drive",
+        "price": "10.00",
+        "image": "products/257488/257488.jpg",
+        "timestamp": "2018-04-23T07:23:51.075Z",
+        "active": true,
+        "featured": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "title": "tv",
+        "description": "your own tv. limited offers. hurry",
+        "slug": "tv",
+        "price": "50.00",
+        "image": "products/1018190/1018190.jpg",
+        "timestamp": "2018-04-24T05:37:37.278Z",
+        "active": true,
+        "featured": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "title": "camera",
+        "description": "your camera here",
+        "slug": "camera",
+        "price": "80.00",
+        "image": "products/458359/458359.jpg",
+        "timestamp": "2018-04-24T05:38:43.154Z",
+        "active": true,
+        "featured": true
+    }
+}
+]

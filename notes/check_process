@@ -1,0 +1,19 @@
+# Checkout Process
+
+1. Cart -> Checkout view
+	?
+	- Login/Register or Enter an Email (as guest)
+	- Shipping address
+	- Billing info
+		- Billing address
+		- Credit card/Payment
+2. Billing App/Component
+	- Billing Profile
+		- User or Email (guest email)
+		- generate payment processor token (Stripe/Braintree)
+
+3. Orders/Invoices Component
+	- Connecting the billing profile
+	- Shipping/billing address
+	- Cart
+	- Status -- shipped? cancelled?

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if cart.products.exists %}
+<table class="table cart-table">
+
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Price</th>
+    </tr>
+  </thead>
+
+
+  <tbody class='cart-body'>
+    
+      	{% for obj in cart.products.all %}
+        <tr class='cart-product'>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td><a href='{{obj.get_absolute_url}}'>{{obj.title}}</a>
+
+          {% include "carts/snippets/remove-cart.html" with product_id=obj.id %} </td>
+          <td>{{obj.price}}</td>
+        </tr>
+        {% endfor %}
+      
+    <tr>
+      <td colspan='2'></td>
+      <td><b>SUBTOTAL - </b><span class='cart-subtotal'>{{cart.subtotal}}</span></td>
+    </tr>
+    <tr>
+      <td colspan='2'></td>
+      
+      <td><b>TOTAL - </b><span class='cart-total'>{{cart.total}}</span></td>
+    </tr>
+    <tr>
+      <td colspan='2'></td>
+      <td><button class ="btn btn-lg btn-basic"><a href='{% url "cart:checkout" %}'>Checkout</a></button></td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+{% else %} 
+<h4> Cart is empty </h4>
+{% endif %}
+{% endblock %}

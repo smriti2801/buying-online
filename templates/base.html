@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">  
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        
+			
+	</head>
+
+	<body>
+		{% load static %}
+		{% include "base/navbar.html" %}
+		<div class='container'>
+			{% block title %}{% endblock %}
+			{% block content %}<img src="{% static 'img/icon.png' %}" class='img-fluid'/></br>{% endblock %}
+		</div>
+
+		{% include "base/css.html" %}
+		{% include "base/js.html" %}
+
+		{% block javascript %}
+		{% endblock %}
+
+	</body>
+</html>

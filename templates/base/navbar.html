@@ -1,0 +1,84 @@
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% url 'register' as register_url %}
+{% url 'product:list' as product_url %}
+{% url 'home' as home_url %}
+{% url 'cart:home' as cart_url %}
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+    <div class='container-fluid'>
+        <!-- Image and text -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+          <div class='container'>
+              <a class="navbar-brand" href="#">
+                <img src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+                Bootstrap
+              </a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+
+                        <li class="nav-item {% if request.path == home_url %}active{% endif %}">
+                          <a class="nav-link" href="{{home_url}}">Home<span class="sr-only">(current)</span></a>
+                        </li>
+
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item {% if request.path == logout_url %}active{% endif %}">
+                          <a class="nav-link" href="{{logout_url}}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item {% if request.path == login_url %}active{% endif %}">
+                          <a class="nav-link" href="{{login_url}}">Login</a>
+                        </li>
+                        {% endif %}
+
+                        <li class="nav-item {% if request.path == register_url %}active{% endif %}">
+                          <a class="nav-link" href="{{register_url}}">Register</a>
+                        </li>
+
+                        <li class="nav-item {% if request.path == product_url %}active{% endif %}">
+                          <a class="nav-link" href="{{product_url}}">Products</a>
+                        </li>
+
+                        <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
+                          <a class="nav-link" href="{{cart_url}}"><span class='navbar-cart-count'>{{ request.session.cart_items }}</span><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+
+</a>
+                        </li>
+
+                    </ul>
+
+                    {% include "search/snippets/form-snippet.html" %}
+
+                </div>
+              </div>
+        </nav>
+    </div>
+
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  </body>
+</html>
