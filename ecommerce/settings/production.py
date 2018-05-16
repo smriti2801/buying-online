@@ -20,7 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1h4sn73rlhe8hz2rams9l4vnh8webv_zp%_ap@9*eg@n@^6hup'
+#SECRET_KEY = '1h4sn73rlhe8hz2rams9l4vnh8webv_zp%_ap@9*eg@n@^6hup'
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -32,15 +35,15 @@ ALLOWED_HOSTS = ['e-website.herokuapp.com']
 LOGOUT_REDIRECT_URL = '/login/'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
-STRIPE_SECRET_KEY = "sk_test_TZqpY1tMJBGrhxPWLVfGWcwt"
-STRIPE_PUB_KEY    = "pk_test_9rN9a21DjZlzSqqmQLNhwp2N"
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY',"sk_test_TZqpY1tMJBGrhxPWLVfGWcwt")
+STRIPE_PUB_KEY    = os.environ.get('STRIPE_PUB_KEY',"pk_test_9rN9a21DjZlzSqqmQLNhwp2N")
 
 
 
-MAILCHIMP_API_KEY           = "7079dc331af33b81cd126dfd4a771ed3-us18"
+MAILCHIMP_API_KEY           = os.environ.get('MAILCHIMP_API_KEY') #"7079dc331af33b81cd126dfd4a771ed3-us18"
 # the format is '{api_key_base}-{data_center_loc}'
 MAILCHIMP_DATA_CENTER       = 'us18'
-MAILCHIMP_EMAIL_LIST_ID     = '0398586184'
+MAILCHIMP_EMAIL_LIST_ID     = os.environ.get('MAILCHIMP_EMAIL_LIST_ID') #'0398586184'
 
 # Application definition
 INSTALLED_APPS = [
