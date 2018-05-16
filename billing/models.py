@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 # Create your models here.
 
 import stripe
-STRIPE_SECRET_KEY = gettatr(settings, 'STRIPE_SECRET_KEY',"sk_test_TZqpY1tMJBGrhxPWLVfGWcwt")
+STRIPE_SECRET_KEY = getattr(settings, 'STRIPE_SECRET_KEY',"sk_test_TZqpY1tMJBGrhxPWLVfGWcwt")
 stripe.api_key = STRIPE_SECRET_KEY
 
 User = settings.AUTH_USER_MODEL
