@@ -50,6 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #third party
+    'storages',
+    
     #our apps
     'addresses',
     'analytics',
@@ -153,6 +157,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static_my_proj"),]
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "static_root")
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")
+
+from ecommerce.aws.conf import *
 
 
 CORS_REPLACE_HTTPS_REFERER      = True

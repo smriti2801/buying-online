@@ -13,6 +13,22 @@
 		{% load static %}
 		{% include "base/navbar.html" %}
 		<div class='container'>
+
+
+
+			{% if messages %}
+			<div class="alert alert-success messages">
+			    {% for message in messages %}
+			    <span{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+			        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+			        {{ message }}</span{br/>
+			    </spam>
+			    {% endfor %}
+			</div>
+			{% endif %}
+
+
+
 			{% block title %}{% endblock %}
 			{% block content %}<img src="{% static 'img/icon.png' %}" class='img-fluid'/></br>{% endblock %}
 		</div>

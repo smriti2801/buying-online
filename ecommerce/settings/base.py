@@ -27,7 +27,8 @@ DEBUG = True
 
 AUTH_USER_MODEL = 'accounts.User'
 
-ALLOWED_HOSTS = ['.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+
 LOGOUT_REDIRECT_URL = '/login/'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
@@ -49,6 +50,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #third party
+    'storages',
+    
     #our apps
     'addresses',
     'analytics',
@@ -148,6 +153,8 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "static_root")
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn", "media_root")
 
+from ecommerce.aws.conf import *
+
 CORS_REPLACE_HTTPS_REFERER      = False
 HOST_SCHEME                     = "http://"
 SECURE_PROXY_SSL_HEADER         = None
@@ -157,5 +164,10 @@ CSRF_COOKIE_SECURE              = False
 SECURE_HSTS_SECONDS             = None
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = False
 SECURE_FRAME_DENY               = False
+
+AWS_GROUP_NAME = "Buying_Online_Group"
+AWS_USERNAME = "django"
+AWS_ACCESS_KEY_ID = "AKIAJNDPCOSWTK452DZQ"
+AWS_SECRET_KEY = "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"
 
 

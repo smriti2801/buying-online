@@ -27,6 +27,7 @@ from carts.views import cart_detail_api_view
 from .views import contact_page
 from billing.views import payment_method_view, payment_method_createview
 
+from marketing.views import MarketingPreferenceUpdateView
 urlpatterns = [
 
     url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
@@ -45,6 +46,7 @@ urlpatterns = [
     url(r'^register/', RegisterView.as_view(), name='register'),
     url(r'^contact/', contact_page, name='contact'),
     url(r'^admin/', admin.site.urls),
+    url(r'^settings/email', MarketingPreferenceUpdateView.as_view(), name='marketing-pref')
 ]
 
 if settings.DEBUG:
