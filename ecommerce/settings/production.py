@@ -40,7 +40,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Django buying-online <mittal.smriti001@gmail.com>'
 
-MANAGERS = (("mittal.smriti001@gmail.com", 'smriti'),)
+MANAGERS = (('smriti', "mittal.smriti001@gmail.com"),)
 ADMINS = MANAGERS
 
 
