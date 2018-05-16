@@ -32,6 +32,18 @@ AUTH_USER_MODEL = 'accounts.User'
 
 ALLOWED_HOSTS = ['e-website.herokuapp.com']
 
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mittal.smriti001@gmail.com' 
+EMAIL_HOST_PASSWORD = 'Highway!!@@' #os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Django buying-online <mittal.smriti001@gmail.com>'
+
+MANAGERS = (("mittal.smriti001@gmail.com", 'smriti'),)
+ADMINS = MANAGERS
+
+
 LOGOUT_REDIRECT_URL = '/login/'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
