@@ -11,8 +11,8 @@ from django.http import JsonResponse
 # Create your views here.
 
 import stripe
-STRIPE_SECRET_KEY = getattr(settings, "STRIPE_SECRET_KEY","sk_test_TZqpY1tMJBGrhxPWLVfGWcwt")
-STRIPE_PUB_KEY    = getattr(settings, "STRIPE_PUB_KEY", "pk_test_9rN9a21DjZlzSqqmQLNhwp2N")
+STRIPE_SECRET_KEY = getattr(settings, "STRIPE_SECRET_KEY")
+STRIPE_PUB_KEY    = getattr(settings, "STRIPE_PUB_KEY")
 stripe.api_key = STRIPE_SECRET_KEY
 
 def cart_detail_api_view(request):
