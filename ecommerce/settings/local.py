@@ -27,8 +27,13 @@ DEBUG = True
 
 AUTH_USER_MODEL = 'accounts.User'
 
+LOGIN_URL = '/login/'
+LOGIN_URL_REDIRECT = '/'
+LOGOUT_URL = '/logout/'
+
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
+BASE_URL = '127.0.0.1:8000' 
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'mittal.smriti001@gmail.com' 
@@ -41,7 +46,6 @@ MANAGERS = (('smriti', "mittal.smriti001@gmail.com"),)
 ADMINS = MANAGERS
 
 
-LOGOUT_REDIRECT_URL = '/login/'
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 STRIPE_SECRET_KEY = "sk_test_TZqpY1tMJBGrhxPWLVfGWcwt"

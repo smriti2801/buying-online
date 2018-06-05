@@ -1,6 +1,7 @@
 .DS_STORE
 *.sublime-project
 fasttracktojquery/
+src/ecommerce/settings/
 
 
 # Virtualenv related

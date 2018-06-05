@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class='row'>
+	<div class='col-12 col-md-6 mx-auto'>
+		<h1>Order {{object.order_id}}</h1>
+		<hr/>
+	</div>
+</div>
+
+<div class='row'>
+	<div class='col-12 col-md-6 mx-auto'>
+		Items = {% for p in object.cart.products.all %}{{p}}. {% endfor %}<br/>
+		Shipping Address = {{object.shipping_address.get_address}}<br/>
+		Billing Address = {{object.billing_address.get_address}}<br/>
+		SubTotal = {{object.cart.total}}<br/>
+		Shipping Total = {{object.shipping_total}}<br/>
+		Order Total = {{object.total}}<br/>
+		Order Status = {{object.status}}
+	</div>
+</div>
+
+
+{% endblock %}

@@ -32,6 +32,9 @@ def cart_detail_api_view(request):
 
 def cart_home(request):
 	cart_obj, new_obj=Cart.objects.new_or_get(request=request)
+
+	print(cart_obj.is_digital)
+
 	context = {'cart' : cart_obj}
 	return render(request, "carts/home.html", context)
 
@@ -72,11 +75,14 @@ def cart_checkout(request):
 	# else:
 	# 	order_obj, new_obj =Order.objects.get_or_create(cart=cart_obj)
 	address_form = AddressForm()
-	login_form = LoginForm()
-	guest_form = GuestForm()
+	login_form = LoginForm(request=request)
+	guest_form = GuestForm(request=request)
 	address_qs = None
 	billing_address_id = request.session.get('billing_address_id', None)
 	shipping_address_id = request.session.get('shipping_address_id', None)
+
+	shipping_address_required = not cart_obj.is_digital
+
 	has_card = False
 
 	# if user or if a guest create a billingprofile
@@ -132,7 +138,9 @@ def cart_checkout(request):
 				"address_form": address_form,
 				"address_qs": address_qs,
 				"has_card": has_card,
-				"publish_key":STRIPE_PUB_KEY
+				"publish_key":STRIPE_PUB_KEY,				
+				"shipping_address_required":shipping_address_required,
+
 				}
 	return render(request, "carts/checkout.html", context)
 

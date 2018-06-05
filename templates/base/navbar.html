@@ -3,6 +3,8 @@
 {% url 'register' as register_url %}
 {% url 'product:list' as product_url %}
 {% url 'home' as home_url %}
+{% url 'contact' as contact_url %}
+{% url 'account:home' as account_url %}
 {% url 'cart:home' as cart_url %}
 {% url 'marketing-pref' as subscribe_url %}
 
@@ -41,30 +43,47 @@
                           <a class="nav-link" href="{{home_url}}">Home<span class="sr-only">(current)</span></a>
                         </li>
 
-                        {% if request.user.is_authenticated %}
-                        <li class="nav-item {% if request.path == logout_url %}active{% endif %}">
-                          <a class="nav-link" href="{{logout_url}}">Logout</a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item {% if request.path == login_url %}active{% endif %}">
-                          <a class="nav-link" href="{{login_url}}">Login</a>
-                        </li>
-                        {% endif %}
-
-                        <li class="nav-item {% if request.path == register_url %}active{% endif %}">
-                          <a class="nav-link" href="{{register_url}}">Register</a>
+                        <li class="nav-item {% if request.path == contact_url %}active{% endif %}">
+                          <a class="nav-link" href="{{contact_url}}">Contact</a>
                         </li>
 
                         <li class="nav-item {% if request.path == product_url %}active{% endif %}">
                           <a class="nav-link" href="{{product_url}}">Products</a>
                         </li>
 
+                        
+
+                        <!-- <li class="nav-item {% if request.path == subscribe_url %}active{% endif %}">
+                          <a class="nav-link" href="{{subscribe_url}}">Subscribe</a>
+                        </li> -->
+
+                        {% if request.user.is_authenticated %}
+                              <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item {% if request.path == account_url %}active{% endif %}" href="{{ account_url }}">Home</a>
+                                        <a class="dropdown-item" href="#">Billing</a>
+                                        <a class="dropdown-item" href="#">Preferences</a>
+                                        <a class="dropdown-item" href="#">History</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ logout_url }}">Logout</a>
+                                      </div>
+                              </li>
+                        {% else %}
+
+                              <li class="nav-item {% if request.path == register_url %}active{% endif %}">
+                                  <a class="nav-link" href="{{register_url}}">Register</a>
+                              </li>
+
+
+                              <li class="nav-item {% if request.path == login_url %}active{% endif %}">
+                                  <a class="nav-link" href="{{login_url}}">Login</a>
+                              </li>
+
+                        {% endif %}
+
                         <li class="nav-item {% if request.path == cart_url %}active{% endif %}">
                           <a class="nav-link" href="{{cart_url}}"><span class='navbar-cart-count'>{{ request.session.cart_items }}</span><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                        </li>
-
-                        <li class="nav-item {% if request.path == subscribe_url %}active{% endif %}">
-                          <a class="nav-link" href="{{subscribe_url}}">Subscribe</a>
                         </li>
 
                     </ul>

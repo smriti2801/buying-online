@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView
-from accounts.views import LoginView, RegisterView, home_page, guest_register_page
+from accounts.views import LoginView, RegisterView, GuestRegisterView, home_page #, guest_register_page
 from django.views.generic import TemplateView
 from addresses.views import checkout_address_create_view, checkout_address_reuse_view
 from carts.views import cart_detail_api_view
@@ -33,10 +33,16 @@ urlpatterns = [
     url(r'^billing/payment-method/create/$', payment_method_createview, name='billing-payment-method-endpoint'),
     url(r'^billing/payment-method/$', payment_method_view, name='billing-payment-method'),
     url(r'^cart/', include('carts.urls', namespace='cart')),
+    url(r'^account/', include('accounts.urls', namespace='account')),
+    url(r'^accounts/', include('accounts.passwords.urls')),
 	url(r'^product/', include('products.urls', namespace='product')),
     url(r'^search/', include('search.urls', namespace='search')),
     url(r'^logout/', LogoutView.as_view(), name='logout'),
-    url(r'^register/guest', guest_register_page, name='guest'),
+
+    url(r'^order/', include('orders.urls', namespace='order')),
+    
+    url(r'^register/guest', GuestRegisterView.as_view(), name='guest'),
+    
     url(r'^api/cart', cart_detail_api_view, name='api-cart'),
 	url(r'^login/', LoginView.as_view(), name='login'),
     url(r'^checkout/address/resuse/', checkout_address_reuse_view, name='reuse'),

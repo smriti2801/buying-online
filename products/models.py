@@ -60,6 +60,7 @@ class Product(models.Model):
 	timestamp = models.DateTimeField(auto_now_add=True)
 	active = models.BooleanField(default=True)
 	featured = models.BooleanField(default=True)
+	is_digital = models.BooleanField(default=False)
 
 	objects = ProductModelManager()
 
