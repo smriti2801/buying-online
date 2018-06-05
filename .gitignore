@@ -2,6 +2,9 @@
 *.sublime-project
 fasttracktojquery/
 src/ecommerce/settings/
+ecommerce/settings/
+ecommerce/aws/
+src/ecommerce/aws/
 
 
 # Virtualenv related
