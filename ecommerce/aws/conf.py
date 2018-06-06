@@ -2,7 +2,7 @@ import datetime
 import os
 
 AWS_GROUP_NAME = "Buying_Online_Group"
-AWS_USERNAME = "django"
+AWS_USERNAME = "django-ecomm"
 
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
